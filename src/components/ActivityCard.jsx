@@ -6,7 +6,7 @@ export default function ActivityCard({ activity }) {
   return (
     <Link
       to={activityPath(activity)}
-      className="group flex flex-col rounded-card border border-secondary-200/80 bg-white p-6 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-primary-200 hover:shadow-elevated"
+      className="group flex min-h-11 flex-col rounded-card border border-secondary-200/80 bg-white p-5 shadow-soft transition duration-300 hover:-translate-y-1 hover:border-primary-200 hover:shadow-elevated sm:p-6"
     >
       <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary-800 text-accent transition-transform duration-300 group-hover:scale-105">
         <ActivityIcon name={activity.icon} className="h-5 w-5" />

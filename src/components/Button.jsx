@@ -15,7 +15,7 @@ export default function Button({ to, variant = 'accent', children, className = '
   return (
     <Link
       to={to}
-      className={`inline-flex items-center justify-center rounded-button px-5 py-2.5 text-sm font-semibold tracking-wide transition duration-200 ${variants[variant]} ${className}`}
+      className={`inline-flex min-h-11 items-center justify-center rounded-button px-5 py-2.5 text-sm font-semibold tracking-wide transition duration-200 ${variants[variant]} ${className}`}
     >
       {children}
     </Link>

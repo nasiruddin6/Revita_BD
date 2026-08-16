@@ -4,13 +4,13 @@ import { navLinks } from '../data/site'
 import Logo from './Logo'
 
 const joinClass =
-  'inline-flex items-center justify-center rounded-button bg-accent px-4 py-2 text-sm font-semibold tracking-wide text-primary-900 shadow-cta transition duration-200 hover:-translate-y-px hover:bg-accent-400'
+  'inline-flex min-h-11 items-center justify-center rounded-button bg-accent px-4 py-2 text-sm font-semibold tracking-wide text-primary-900 shadow-cta transition duration-200 hover:-translate-y-px hover:bg-accent-400'
 
 function linkClass({ isActive }) {
   return [
-    'relative py-1 text-[0.8125rem] font-medium tracking-wide transition-colors duration-200',
+    'relative inline-flex min-h-11 items-center py-1 text-[0.8125rem] font-medium tracking-wide transition-colors duration-200',
     isActive
-      ? 'text-primary-800 after:absolute after:inset-x-1 after:-bottom-1 after:h-px after:bg-accent'
+      ? 'text-primary-800 after:absolute after:inset-x-1 after:bottom-2 after:h-px after:bg-accent'
       : 'text-primary-800/65 hover:text-primary-800',
   ].join(' ')
 }
@@ -52,10 +52,10 @@ export default function Navbar() {
             : 'border-transparent bg-transparent'
         }`}
       >
-        <div className="mx-auto flex h-[4.25rem] max-w-container items-center justify-between gap-4 px-gutter md:h-[4.75rem]">
+        <div className="page-wrap flex h-16 items-center justify-between gap-3 md:h-[4.75rem]">
           <Logo compact />
 
-          <nav aria-label="Primary" className="hidden items-center gap-4 whitespace-nowrap xl:gap-6 lg:flex">
+          <nav aria-label="Primary" className="hidden items-center gap-3 whitespace-nowrap xl:flex xl:gap-5 2xl:gap-6">
             {navLinks.map((item) => (
               <NavLink key={item.to} to={item.to} end={item.to === '/'} className={linkClass}>
                 {item.label}
@@ -63,14 +63,14 @@ export default function Navbar() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
             <NavLink to="/join" className={`${joinClass} hidden sm:inline-flex`}>
               Join Us
             </NavLink>
 
             <button
               type="button"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-button text-primary-800 lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-button text-primary-800 xl:hidden"
               aria-expanded={menuOpen}
               aria-controls="mobile-nav"
               onClick={() => setMenuOpen((open) => !open)}
@@ -99,7 +99,7 @@ export default function Navbar() {
       </header>
 
       <div
-        className={`fixed inset-0 z-40 bg-primary-900/40 backdrop-blur-[2px] transition-opacity duration-300 lg:hidden ${
+        className={`fixed inset-0 z-40 bg-primary-900/40 backdrop-blur-[2px] transition-opacity duration-300 xl:hidden ${
           menuOpen ? 'opacity-100' : 'pointer-events-none opacity-0'
         }`}
         onClick={() => setMenuOpen(false)}
@@ -109,18 +109,18 @@ export default function Navbar() {
       <aside
         id="mobile-nav"
         inert={!menuOpen}
-        className={`fixed top-0 right-0 z-[60] flex h-svh w-[min(20.5rem,88vw)] flex-col overflow-hidden bg-white shadow-elevated transition-transform duration-300 ease-out lg:hidden ${
+        className={`fixed top-0 right-0 z-[60] flex h-svh w-[min(20.5rem,88vw)] flex-col overflow-hidden bg-white shadow-elevated transition-transform duration-300 ease-out xl:hidden ${
           menuOpen ? 'translate-x-0' : 'pointer-events-none translate-x-full'
         }`}
         aria-hidden={!menuOpen}
       >
-        <div className="flex items-center justify-between border-b border-secondary-200 px-5 py-4">
+        <div className="flex items-center justify-between border-b border-secondary-200 px-5 py-3">
           <p className="font-heading text-sm font-semibold tracking-[0.18em] text-primary-800">
             MENU
           </p>
           <button
             type="button"
-            className="flex h-9 w-9 items-center justify-center rounded-button text-primary-700"
+            className="flex h-11 w-11 items-center justify-center rounded-button text-primary-700"
             onClick={() => setMenuOpen(false)}
             aria-label="Close menu"
           >
@@ -139,7 +139,7 @@ export default function Navbar() {
               end={item.to === '/'}
               onClick={() => setMenuOpen(false)}
               className={({ isActive }) =>
-                `rounded-lg px-3 py-2.5 text-sm font-medium tracking-wide transition-colors ${
+                `inline-flex min-h-11 items-center rounded-lg px-3 text-sm font-medium tracking-wide transition-colors ${
                   isActive
                     ? 'bg-primary-50 text-primary-800'
                     : 'text-primary-800/75 hover:bg-secondary-100 hover:text-primary-800'
@@ -151,7 +151,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="border-t border-secondary-200 p-4">
+        <div className="border-t border-secondary-200 p-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
           <NavLink
             to="/join"
             onClick={() => setMenuOpen(false)}

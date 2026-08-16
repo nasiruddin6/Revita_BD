@@ -60,7 +60,7 @@ function StatCard({ value, suffix, label, start }) {
   const count = useCountUp(value, start)
 
   return (
-    <article className="group rounded-card border border-secondary-200/80 bg-white px-6 py-7 shadow-card transition duration-300 hover:-translate-y-1 hover:border-primary-200 hover:shadow-elevated">
+    <article className="group rounded-card border border-secondary-200/80 bg-white px-5 py-6 shadow-card transition duration-300 hover:-translate-y-1 hover:border-primary-200 hover:shadow-elevated sm:px-6 sm:py-7">
       <p className="font-heading text-3xl font-semibold tracking-tight text-primary-800 transition-colors duration-300 group-hover:text-accent-600 md:text-4xl">
         {count.toLocaleString('en-US')}
         {suffix}
@@ -75,8 +75,8 @@ export default function ImpactStats() {
   const [ref, inView] = useInView()
 
   return (
-    <section ref={ref} className="relative z-10 -mt-14 px-gutter pb-2">
-      <div className="mx-auto grid max-w-container gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <section ref={ref} className="relative z-10 -mt-8 px-4 pb-2 sm:-mt-12 sm:px-6 lg:-mt-14 lg:px-8">
+      <div className="mx-auto grid max-w-container gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
         {stats.map((item) => (
           <StatCard key={item.id} {...item} start={inView} />
         ))}

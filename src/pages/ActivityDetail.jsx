@@ -11,14 +11,14 @@ export default function ActivityDetail() {
 
   if (!activity) {
     return (
-      <section className="mx-auto flex min-h-[60vh] max-w-container flex-col justify-center px-gutter py-section">
+      <section className="page-wrap flex min-h-[60vh] flex-col justify-center py-12 sm:py-16">
         <p className="text-xs font-medium tracking-[0.22em] text-accent-600 uppercase">Activities</p>
-        <h1 className="font-heading mt-3 text-4xl font-semibold text-primary-800">Not found</h1>
-        <p className="mt-4 max-w-md text-primary-800/65">
+        <h1 className="font-heading mt-3 text-3xl font-semibold text-primary-800 sm:text-4xl">Not found</h1>
+        <p className="mt-4 max-w-md text-sm text-primary-800/65 sm:text-base">
           This programme is not on the list. It may have been renamed, or the link is out of date.
         </p>
         <div className="mt-8">
-          <Button to="/activities" variant="primary">
+          <Button to="/activities" variant="primary" className="w-full sm:w-auto">
             All activities
           </Button>
         </div>
@@ -32,11 +32,11 @@ export default function ActivityDetail() {
     <>
       <PageHero eyebrow="Activities" title={activity.title} description={activity.description} />
 
-      <article className="bg-secondary-50 py-section md:py-section-lg">
-        <div className="mx-auto max-w-container px-gutter">
+      <article className="section-y bg-secondary-50">
+        <div className="page-wrap">
           <Link
             to="/activities"
-            className="inline-flex items-center gap-2 text-sm font-medium text-primary-700 transition-colors hover:text-accent-600"
+            className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-primary-700 transition-colors hover:text-accent-600"
           >
             <IconArrow className="h-4 w-4 rotate-180" />
             All activities
@@ -44,12 +44,12 @@ export default function ActivityDetail() {
 
           <ImagePlaceholder
             label={activity.title}
-            className="mt-8 aspect-16/9 min-h-56 rounded-card shadow-card"
+            className="mt-6 aspect-16/9 min-h-48 rounded-card shadow-card sm:mt-8 sm:min-h-56"
           />
 
-          <div className="mx-auto mt-12 max-w-prose space-y-4">
+          <div className="mx-auto mt-8 max-w-prose space-y-4 sm:mt-12">
             {activity.body.map((paragraph) => (
-              <p key={paragraph.slice(0, 28)} className="text-base leading-relaxed text-primary-800/75">
+              <p key={paragraph.slice(0, 28)} className="text-sm leading-relaxed text-primary-800/75 sm:text-base">
                 {paragraph}
               </p>
             ))}
@@ -57,12 +57,12 @@ export default function ActivityDetail() {
         </div>
       </article>
 
-      <section className="bg-white py-section md:py-section-lg">
-        <div className="mx-auto max-w-container px-gutter">
+      <section className="section-y bg-white">
+        <div className="page-wrap">
           <p className="text-xs font-medium tracking-[0.22em] text-accent-600 uppercase">Gallery</p>
-          <h2 className="font-heading mt-3 text-3xl font-semibold text-primary-800">From the field</h2>
+          <h2 className="font-heading mt-3 text-2xl font-semibold text-primary-800 sm:text-3xl">From the field</h2>
           <span className="mt-5 block h-px w-14 bg-accent" />
-          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+          <div className="mt-8 grid gap-3 sm:mt-10 sm:grid-cols-3 sm:gap-4">
             {activity.gallery.map((image) => (
               <ImagePlaceholder
                 key={image.id}
@@ -74,17 +74,17 @@ export default function ActivityDetail() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-accent py-section md:py-section-lg">
+      <section className="section-y relative overflow-hidden bg-accent">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgb(255_255_255/0.22),transparent_55%)]" />
-        <div className="relative mx-auto max-w-container px-gutter text-center">
-          <h2 className="font-heading font-bengali text-3xl font-semibold text-primary-900 md:text-4xl">
+        <div className="page-wrap relative text-center">
+          <h2 className="font-heading font-bengali text-2xl font-semibold text-balance text-primary-900 sm:text-3xl md:text-4xl">
             এই কাজে যুক্ত হতে চাই
           </h2>
           <p className="mx-auto mt-4 max-w-lg text-sm leading-relaxed text-primary-900/75 md:text-base">
             Stand with this programme as a volunteer — time, skill, and a willingness to return.
           </p>
-          <div className="mt-8">
-            <Button to={`/join?activity=${activity.slug}`} variant="primary">
+          <div className="mt-8 flex justify-center">
+            <Button to={`/join?activity=${activity.slug}`} variant="primary" className="w-full sm:w-auto">
               Join this work
             </Button>
           </div>
@@ -92,15 +92,15 @@ export default function ActivityDetail() {
       </section>
 
       {related.length > 0 ? (
-        <section className="bg-secondary-50 py-section">
-          <div className="mx-auto max-w-container px-gutter">
-            <h2 className="font-heading text-xl font-semibold text-primary-800">Other programmes</h2>
-            <ul className="mt-6 flex flex-wrap gap-3">
+        <section className="section-y bg-secondary-50">
+          <div className="page-wrap">
+            <h2 className="font-heading text-lg font-semibold text-primary-800 sm:text-xl">Other programmes</h2>
+            <ul className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               {related.map((item) => (
-                <li key={item.id}>
+                <li key={item.id} className="min-w-0 sm:max-w-full">
                   <Link
                     to={activityPath(item)}
-                    className="inline-flex rounded-button border border-secondary-300 bg-white px-4 py-2 text-sm font-medium text-primary-800 transition-colors hover:border-primary-300 hover:text-primary-700"
+                    className="inline-flex min-h-11 w-full items-center justify-center rounded-button border border-secondary-300 bg-white px-4 py-2 text-sm font-medium text-primary-800 transition-colors hover:border-primary-300 hover:text-primary-700 sm:w-auto"
                   >
                     {item.title}
                   </Link>

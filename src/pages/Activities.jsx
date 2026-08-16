@@ -13,14 +13,14 @@ export default function Activities() {
         description="Four lines of work — outreach, education, health, and advocacy — each built to be returned to, not staged once."
       />
 
-      <section className="bg-secondary-50 py-section md:py-section-lg">
-        <div className="mx-auto max-w-container px-gutter">
+      <section className="section-y bg-secondary-50">
+        <div className="page-wrap">
           <SectionHeader
             eyebrow="Programmes"
             title="Choose a line of work"
             description="Open any card for the full story, photographs, and a way to join that work."
           />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2">
+          <div className="mt-8 grid gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5">
             {activities.map((activity) => (
               <ActivityCard key={activity.id} activity={activity} />
             ))}
