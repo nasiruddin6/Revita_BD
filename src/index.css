@@ -18,4 +18,9 @@
   h6 {
     @apply font-heading text-primary-800 tracking-tight;
   }
+
+  a:focus-visible,
+  button:focus-visible {
+    @apply shadow-focus;
+  }
 }
