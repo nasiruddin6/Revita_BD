@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
 import About from './pages/About'
 import Activities from './pages/Activities'
+import ActivityDetail from './pages/ActivityDetail'
 import Contact from './pages/Contact'
 import Gallery from './pages/Gallery'
 import Home from './pages/Home'
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/activities" element={<Activities />} />
+        <Route path="/activities/:slug" element={<ActivityDetail />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/team" element={<Team />} />
         <Route path="/news" element={<News />} />

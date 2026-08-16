@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { activities } from '../data/activities'
-import { quickLinks, site, socialLinks } from '../data/site'
+import { activities, activityPath } from '../data/activities'
+import { quickLinks, site, socialLinks, telHref } from '../data/site'
 import Logo from './Logo'
 import { IconMail, IconPhone, IconPin, SocialIcon } from './icons'
 
@@ -51,7 +51,7 @@ export default function Footer() {
           {activities.map((item) => (
             <li key={item.id}>
               <Link
-                to={item.href}
+                to={activityPath(item)}
                 className="text-sm text-secondary-300 transition-colors hover:text-accent"
               >
                 {item.title}
@@ -71,7 +71,7 @@ export default function Footer() {
             </li>
             <li>
               <a
-                href={`tel:${site.contact.phone.replace(/\s/g, '')}`}
+                href={telHref(site.contact.phone)}
                 className="flex gap-3 text-sm text-secondary-300 transition-colors hover:text-accent"
               >
                 <IconPhone className="mt-0.5 h-4 w-4 shrink-0 text-accent" />

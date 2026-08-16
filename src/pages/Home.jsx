@@ -1,3 +1,4 @@
+import EventRegistration from '../components/EventRegistration'
 import FeaturedActivities from '../components/home/FeaturedActivities'
 import Hero from '../components/home/Hero'
 import ImpactStats from '../components/home/ImpactStats'
@@ -11,6 +12,7 @@ export default function Home() {
       <ImpactStats />
       <FeaturedActivities />
       <RecentEvents />
+      <EventRegistration />
       <VolunteerCta />
     </>
   )

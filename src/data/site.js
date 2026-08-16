@@ -7,9 +7,9 @@ export const site = {
   introEn:
     'A youth-led social organization working for justice, dignity, and community power.',
   contact: {
-    address: 'Dhaka, Bangladesh',
-    phone: '+880 17 0000 0000',
-    email: 'contact@revitabd.org',
+    address: 'Tejgaon, Dhaka, Bangladesh - 1215',
+    phone: '+880 1985-731155',
+    email: 'revitabangladesh.info@gmail.com',
   },
 }
 
@@ -39,3 +39,7 @@ export const socialLinks = [
   { name: 'YouTube', href: 'https://youtube.com', icon: 'youtube' },
   { name: 'X', href: 'https://x.com', icon: 'x' },
 ]
+
+export function telHref(phone) {
+  return `tel:${phone.replace(/[^\d+]/g, '')}`
+}
