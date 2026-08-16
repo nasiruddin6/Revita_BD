@@ -79,3 +79,98 @@ export function SocialIcon({ name, className }) {
   if (!Icon) return null
   return <Icon className={className} />
 }
+
+export function IconOutreach({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
+      <circle cx="9" cy="8" r="2.2" stroke="currentColor" strokeWidth="1.6" />
+      <circle cx="16" cy="8.5" r="1.8" stroke="currentColor" strokeWidth="1.6" />
+      <path
+        d="M4.5 18.5c.4-3 2.3-4.8 4.5-4.8s4.1 1.8 4.5 4.8"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+      <path
+        d="M13.2 16.2c.6-1.7 2-2.7 3.5-2.7 1.6 0 3 1.1 3.4 3"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+      />
+    </svg>
+  )
+}
+
+export function IconEducation({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
+      <path
+        d="M3.5 9.5 12 5l8.5 4.5L12 14 3.5 9.5z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M6.5 11.2v4.3c0 .4.9 1.7 5.5 2.7 4.6-1 5.5-2.3 5.5-2.7v-4.3"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+export function IconHealth({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
+      <path
+        d="M12 20s-7-4.4-7-10.2C5 6.6 7.2 5 9.4 5c1.4 0 2.4.7 2.6 1.7C12.2 5.7 13.2 5 14.6 5 16.8 5 19 6.6 19 9.8 19 15.6 12 20 12 20z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+export function IconAdvocacy({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
+      <path d="M4 14.5h3.2V20H4v-5.5z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+      <path
+        d="M7.2 15.2 14 8.8l3.2 1.2-6.5 6.8H7.2v-1.6z"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinejoin="round"
+      />
+      <path d="M14.4 8.4 17 5.8l2.4.9-2.5 2.6-2.5-.9z" stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export function IconArrow({ className }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" className={className}>
+      <path
+        d="M5 12h14M13 6l6 6-6 6"
+        stroke="currentColor"
+        strokeWidth="1.6"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  )
+}
+
+const activityIcons = {
+  outreach: IconOutreach,
+  education: IconEducation,
+  health: IconHealth,
+  advocacy: IconAdvocacy,
+}
+
+export function ActivityIcon({ name, className }) {
+  const Icon = activityIcons[name]
+  if (!Icon) return null
+  return <Icon className={className} />
+}

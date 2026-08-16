@@ -33,14 +33,6 @@ export const quickLinks = [
   { label: 'Contact', to: '/contact' },
 ]
 
-export const activityLinks = [
-  { label: 'Community Outreach', to: '/activities' },
-  { label: 'Education Support', to: '/activities' },
-  { label: 'Health & Wellbeing', to: '/activities' },
-  { label: 'Advocacy & Rights', to: '/activities' },
-  { label: 'Youth Leadership', to: '/activities' },
-]
-
 export const socialLinks = [
   { name: 'Facebook', href: 'https://facebook.com', icon: 'facebook' },
   { name: 'Instagram', href: 'https://instagram.com', icon: 'instagram' },

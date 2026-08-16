@@ -24,3 +24,16 @@
     @apply shadow-focus;
   }
 }
+
+@utility bg-hero {
+  background-color: #0f5132;
+  background-image:
+    radial-gradient(ellipse 90% 70% at 0% 0%, rgb(213 165 52 / 0.16), transparent 52%),
+    radial-gradient(ellipse 70% 55% at 100% 100%, rgb(255 255 255 / 0.07), transparent 48%),
+    linear-gradient(165deg, #072c1b 0%, #0f5132 52%, #0b3d25 100%);
+}
+
+@utility bg-dot-grid {
+  background-image: radial-gradient(rgb(255 255 255 / 0.11) 1px, transparent 1px);
+  background-size: 22px 22px;
+}

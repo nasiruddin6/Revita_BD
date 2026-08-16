@@ -1,10 +1,6 @@
 import { Link } from 'react-router-dom'
-import {
-  activityLinks,
-  quickLinks,
-  site,
-  socialLinks,
-} from '../data/site'
+import { activities } from '../data/activities'
+import { quickLinks, site, socialLinks } from '../data/site'
 import Logo from './Logo'
 import { IconMail, IconPhone, IconPin, SocialIcon } from './icons'
 
@@ -52,13 +48,13 @@ export default function Footer() {
         </FooterColumn>
 
         <FooterColumn title="Activities">
-          {activityLinks.map((item) => (
-            <li key={item.label}>
+          {activities.map((item) => (
+            <li key={item.id}>
               <Link
-                to={item.to}
+                to={item.href}
                 className="text-sm text-secondary-300 transition-colors hover:text-accent"
               >
-                {item.label}
+                {item.title}
               </Link>
             </li>
           ))}
